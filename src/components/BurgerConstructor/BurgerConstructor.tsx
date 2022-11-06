@@ -9,5 +9,11 @@ import {
 import PropTypes from "prop-types";
 
 const BurgerConstructor = () => {
-    
-}
+  return (
+    <section>
+      <div></div>
+    </section>
+  );
+};
+
+export default BurgerConstructor;
