@@ -1,13 +1,13 @@
 import * as React from "react";
-import "./App.css";
-import AppHeader from '../AppHeader/AppHeader';
+import styles from "../App/App.module.css";
+import AppHeader from "../AppHeader/AppHeader";
 
-
-const App =()  =>{
-  return(
-    <AppHeader/>
-  )
-}
-
+const App = () => {
+  return (
+    <div className={styles.page}>
+      <AppHeader />
+    </div>
+  );
+};
 
 export default App;
