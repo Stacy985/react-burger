@@ -1,8 +1,16 @@
 .burgerConstrctor {
   display: flex;
-  flex-direction: column;
 }
 
 .container {
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
