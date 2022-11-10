@@ -1,6 +1,8 @@
-import { URL } from "../utils/Data.jsx";
 class Api {
   constructor(url) {
-    this.url = url;
+    this.url = url
   }
+
 }
+const URL = 'https://norma.nomoreparties.space/api';
+

@@ -1,7 +1,8 @@
 import React from "react";
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
-
+import PropTypes from 'prop-types';
 import styles from "../BurgerIngredients/BurgerIngredients.module.css"
+/* import IngredienItem from "./IngredienItem/IngredienItem" */
 
 const BurgerIngredients = () => {
 
@@ -21,7 +22,9 @@ const BurgerIngredients = () => {
         </Tab>
       </div>
       <h2 className="text text_type_main-medium mt-10 mb-6">Булки</h2>
-      <ul></ul>
+      <ul>
+    {/*     <IngredienItem /> */}
+      </ul>
        <h2 className="text text_type_main-medium mt-10 mb-6">Соусы</h2>
        <ul></ul>
        <h2 className="text text_type_main-medium mt-10 mb-6">Начинки</h2>
@@ -29,5 +32,7 @@ const BurgerIngredients = () => {
     </section>
   );
 };
+
+
 
 export default BurgerIngredients;
