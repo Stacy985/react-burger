@@ -1,4 +1,32 @@
-.burgerIngredients {
-  box-sizing: border-box;
+.BurgerIngredients {
   display: flex;
+  flex-direction: column;
+  padding-left: 382px;
+}
+.tabs {
+  display: flex;
+}
+.ingredient {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 272px));
+  max-width: 600px;
+}
+
+.text {
+  text-align: center;
+}
+
+/* .BurgerScroll {
+  display: flex;
+  flex-direction: column;
+  padding-left: 382px;
+} */
+.burgerScrollBar::-webkit-scrollbar {
+  width: 8px;
+  height: auto;
+  background-color: #2f2f37;
+}
+
+.burgerScrollBar::-webkit-scrollbar-thumb {
+  background-color: #8585ad;
 }

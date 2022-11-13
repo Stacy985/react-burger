@@ -220,4 +220,10 @@ const ingredientTypes = {
   sauce: "sauce",
 };
 
-export { ingredientTypes, data };
+const ingredientType = PropTypes.shape({
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+});
+
+export { ingredientTypes, data, ingredientType };
