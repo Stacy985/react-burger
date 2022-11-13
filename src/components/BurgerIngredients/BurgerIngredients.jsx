@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import styles from "../BurgerIngredients/BurgerIngredients.module.css";
 import Ingredientpart from "../BurgerIngredients/ingredientPart/ingredientPart";
 import { ingredientTypes, ingredientType } from "../../utils/Data";
-import Modal from "../Modal/Modal"
+import IngredientDetails from "../IngredientDetails/IngredientDetails";
+
+import Modal from "../Modal/Modal";
 
 const BurgerIngredients = (props) => {
   const main = ingredientTypes.main;
@@ -87,13 +89,11 @@ const BurgerIngredients = (props) => {
       </div>
       {ingredientOpen && (
         <Modal closePopup={closePopup}>
-         {/*  <IngredientDetails ingredient={ingredienData} /> */}
+           <IngredientDetails ingredient={ingredienData} />
         </Modal>
       )}
     </section>
   );
-
 };
-
 
 export default BurgerIngredients;
