@@ -17,9 +17,9 @@ import PropTypes from "prop-types";
 //   name: string;
 // }
 
-const BurgerConstructor = (props) => {
-
-
+const BurgerConstructor = ({ingredients}) => {
+  const bun = ingredients.find((ingredient) => ingredient.type === "bun");
+  const ingredientsData = ingredients.filter((ingredient) => ingredient.type !== "bun")
   return (
     <section className={`${styles.burgerConstrctor} pt-25 pr-4 pl-4`}>
       <div className="ml-8">
@@ -28,32 +28,39 @@ const BurgerConstructor = (props) => {
             type="top"
             isLocked={true}
             text="Краторная булка N-200i (верх)"
-            price={200}
-            thumbnail={
-              props.ingredients.find((ingredient) =>
-                ingredient._id === "60666c42cc7b410027a1a9b1"
-              ).image}
+            price={bun.price}
+            thumbnail={bun.image}
           />
 
           <ul className={`${styles.list} pr-2`}>
-            <DragIcon type="primary" />
+          {/*   <DragIcon type="primary" />
 
             <ConstructorElement
-              text={props.name}
-              price={props.price}
-              thumbnail={props.image}
-            />
+              text={bun.name}
+              price={bun.price}
+              thumbnail={bun.image}
+            /> */}
+     {ingredientsData.map((ingredient)=>{
+          return(
+            <li key={ingredient._id}
+              className="pb-4 pr-2" >
+                <DragIcon type="primary" />
+                <ConstructorElement
+                  isLocked={false}
+                  text={ingredient.name}
+                  price={ingredient.price}
+                  thumbnail={ingredient.image}/>
+            </li>  
+          )
+        })}
+
           </ul>
           <ConstructorElement
             type="bottom"
             isLocked={true}
             text="Краторная булка N-200i (низ)"
-            price={200}
-              thumbnail={
-              props.ingredients.find((ingredient) =>
-                ingredient._id === "60666c42cc7b410027a1a9b1"
-              ).image}
-          
+            price={bun.price}
+            thumbnail={bun.image}
           />
         </div>
         <div />
