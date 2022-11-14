@@ -18,13 +18,13 @@ const BurgerIngredients = (props) => {
   const [current, setCurrent] = React.useState("bun");
 
   const openPopup = (ingredient) => {
-    setIngredeinData(ingredient);
-    setIngredientOpen(true);
+    setIngredeinData(true);
+    setIngredientOpen(ingredient);
   };
 
   const closePopup = () => {
-    setIngredientOpen(false);
     setIngredeinData(null);
+    setIngredientOpen(false);
   };
 
   return (
@@ -52,6 +52,7 @@ const BurgerIngredients = (props) => {
                   image={data.image}
                   price={data.price}
                   key={data._id}
+                  onIngredientClick={() => openPopup()}
                 />
               )
           )}
@@ -82,6 +83,7 @@ const BurgerIngredients = (props) => {
                   image={data.image}
                   price={data.price}
                   key={data._id}
+                  onIngredientClick={() => openPopup()}
                 />
               )
           )}
@@ -89,11 +91,14 @@ const BurgerIngredients = (props) => {
       </div>
       {ingredientOpen && (
         <Modal closePopup={closePopup}>
-           <IngredientDetails ingredient={ingredienData} />
+          <IngredientDetails ingredient={ingredienData} />
         </Modal>
       )}
     </section>
   );
+};
+BurgerIngredients.propTypes = {
+  ingredients: PropTypes.arrayOf(ingredientType).isRequired,
 };
 
 export default BurgerIngredients;

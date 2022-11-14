@@ -9,23 +9,24 @@ import { data } from "../../utils/Data.jsx";
 
 const App = () => {
   const [ingredients, setIngredients] = React.useState([]);
+  
   React.useEffect(() => {
     newApi
       .getIngredients()
       .then((res) => {
         setIngredients(res.data);
-      }, [])
+      })
       .catch((err) => {
         console.log("Ошибка: $(err)");
       });
-  });
+  }, []);
 
   return (
     <div className={styles.page}>
       <AppHeader />
       <main className={styles.container}>
         <BurgerIngredients ingredients={ingredients} />
-        <BurgerConstructor ingredients={ingredients} />
+        { ingredients.length ? <BurgerConstructor ingredients={ingredients} /> : null }
       </main>
     </div>
   );
