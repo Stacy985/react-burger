@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "../BurgerIngredients/BurgerIngredients.module.css";
 import Ingredientpart from "../BurgerIngredients/ingredientPart/ingredientPart";
 import { ingredientTypes, ingredientType } from "../../utils/Data";
-import IngredientDetails from "../IngredientDetails/IngredientDetails";
+import CompoundDetail from "../CompoundDetail/CompoundDetail";
 
 import Modal from "../Modal/Modal";
 
@@ -15,32 +15,42 @@ const BurgerIngredients = (props) => {
   const sauce = ingredientTypes.sauce;
   const [ingredientOpen, setIngredientOpen] = React.useState(false);
   const [ingredienData, setIngredeinData] = React.useState(null);
-
-  const openPopup = (ingredient) => {
-    setIngredeinData(true);
-    setIngredientOpen(ingredient);
+  // попробовать метод $0.scrollIntoView({ behavior: 'smooth' });
+  const tabScroll = (tab) => {
+    setCurrent(tab);
+    const item = document.getElementById(tab);
+    if (item) item.scrollIntoView({ behavior: "smooth" });
+  };
+  const openPopup = (data) => {
+    setIngredeinData(data);
+    setIngredientOpen(true);
   };
 
   const closePopup = () => {
     setIngredeinData(null);
     setIngredientOpen(false);
   };
-
-   // $0.scrollIntoView({ behavior: 'smooth' });
+  /*   const closePopup = () => setIngredientModal(null); */
 
   return (
     <section className={styles.burgerIngredients}>
       <h1 className="text text_type_main-large mt-10 mb-5">Соберите бургер</h1>
       <div className={styles.tabs}>
-        <Tab value="one" active={current === bun} onClick={setCurrent}>
-          Булки
-        </Tab>
-        <Tab value="two" active={current === sauce} onClick={setCurrent}>
-          Соусы
-        </Tab>
-        <Tab value="three" active={current === main} onClick={setCurrent}>
-          Начинки
-        </Tab>
+        <a>
+          <Tab value="one" active={current === bun} onClick={tabScroll}>
+            Булки
+          </Tab>
+        </a>
+        <a>
+          <Tab value="two" active={current === sauce} onClick={tabScroll}>
+            Соусы
+          </Tab>
+        </a>
+        <a>
+          <Tab value="three" active={current === main} onClick={tabScroll}>
+            Начинки
+          </Tab>
+        </a>
       </div>
       <ul className={styles.burgerScroll}>
         <h2 className="text text_type_main-medium mt-10 mb-6">Булки</h2>
@@ -53,7 +63,7 @@ const BurgerIngredients = (props) => {
                   image={data.image}
                   price={data.price}
                   key={data._id}
-                  onIngredientClick={() => openPopup()}
+                  onIngredientClick={() => openPopup(data)}
                 />
               )
           )}
@@ -69,6 +79,7 @@ const BurgerIngredients = (props) => {
                   image={data.image}
                   price={data.price}
                   key={data._id}
+                  onIngredientClick={() => openPopup(data)}
                 />
               )
           )}
@@ -84,15 +95,18 @@ const BurgerIngredients = (props) => {
                   image={data.image}
                   price={data.price}
                   key={data._id}
-                  onIngredientClick={() => openPopup()}
+                  onIngredientClick={(data) => openPopup(data)}
+                  
                 />
+               
               )
           )}
         </div>
+        console.log(Ingredientpart)
       </ul>
       {ingredientOpen && (
         <Modal closePopup={closePopup}>
-          <IngredientDetails ingredient={ingredienData} />
+          <CompoundDetail ingredient={ingredienData} />
         </Modal>
       )}
     </section>

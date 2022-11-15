@@ -27,15 +27,11 @@ const BurgerConstructor = ({ ingredients }) => {
   const handleEscKeydown = (evt) => {
     evt.key === "Escape" && closePopup();
   };
-  const { currentBurger } = useSelector((store) => store.currentBurgerReducer);
-  const totalPrice = currentBurger.length
-  ? currentBurger.reduce((prev, cur) => (cur.type !== 'bun' ? prev + cur.price : prev + cur.price * 2), 0)
-  : 0;
 
   return (
     <section className={`${styles.burgerConstrctor} pl-10 pt-20`}>
-      <div className={styles.containerButton}>
-        <div className={styles.container}>
+      <div className={styles.containerButton}> 
+      <div className={styles.container}>
           <ConstructorElement
             type="top"
             isLocked={true}
@@ -45,13 +41,6 @@ const BurgerConstructor = ({ ingredients }) => {
           />
 
           <ul className={`${styles.burgerScroll} pr-2`}>
-            {/*   
-         <DragIcon type="primary" />
-         <ConstructorElement
-              text={bun.name}
-              price={bun.price}
-              thumbnail={bun.image}
-            /> */}
             {ingredientsData.map((ingredient) => {
               return (
                 <li
@@ -77,10 +66,14 @@ const BurgerConstructor = ({ ingredients }) => {
             thumbnail={bun.image}
           />
         </div>
-        <div>    <p className="text text_type_digits-medium mr-2">{totalPrice}</p>
+
+        <div className= {`${styles.containerIcon} mt-10`}>
+       
+          <div className={styles.containerCount}>
+          <p className="text text_type_digits-medium mr-2">{610}</p>
           <CurrencyIcon type="primary" />
           </div>
-        <div className="mt-10" />
+    
         <Button
           htmlType="button"
           type="primary"
@@ -90,6 +83,9 @@ const BurgerConstructor = ({ ingredients }) => {
           Оформить заказ
         </Button>
       </div>
+      </div>
+        
+ 
       {orderDetalsOpen && (
         <Modal closePopup={closePopup} onEscKeydown={handleEscKeydown}>
           <OrderDetails></OrderDetails>

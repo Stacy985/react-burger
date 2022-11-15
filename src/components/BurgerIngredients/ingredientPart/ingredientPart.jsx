@@ -6,9 +6,9 @@ import {
 } from "@ya.praktikum/react-developer-burger-ui-components";
 import styles from "../ingredientPart/ngredientPart.module.css";
 
-const IngredientPart = (props) => {
+const IngredientPart = (props,{onIngredientClick}) => {
   return (
-    <li className={styles.ingredientPart}>
+    <li className={styles.ingredientPart} onClick={onIngredientClick}>
       <img className={styles.buns} src={props.image} alt={props.alt} />
       <div className={styles.icons}>
         <h2 className="text text_type_digits-default">{props.price}</h2>
@@ -25,7 +25,8 @@ IngredientPart.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  count: PropTypes.number.isRequired
+  count: PropTypes.number,
+  onIngredientClick: PropTypes.func.isRequired,
 };
 
 export default IngredientPart;

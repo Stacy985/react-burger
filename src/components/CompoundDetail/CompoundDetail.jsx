@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { ingredientType } from "../../utils/Data";
 
-const IngredientDetails = ({ ingredient }) => {
+const CompoundDetail = ({ ingredient }) => {
   return (
     <div>
       <img src={ingredient.image_large} alt={ingredient.name} />
@@ -39,7 +39,7 @@ const IngredientDetails = ({ ingredient }) => {
   );
 };
 
-IngredientDetails.propTypes = {
+CompoundDetail.propTypes = {
   ingredient: ingredientType.isRequired,
 };
-export default IngredientDetails;
+export default CompoundDetail.jsx;
