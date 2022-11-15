@@ -27,10 +27,14 @@ const BurgerConstructor = ({ ingredients }) => {
   const handleEscKeydown = (evt) => {
     evt.key === "Escape" && closePopup();
   };
+  const { currentBurger } = useSelector((store) => store.currentBurgerReducer);
+  const totalPrice = currentBurger.length
+  ? currentBurger.reduce((prev, cur) => (cur.type !== 'bun' ? prev + cur.price : prev + cur.price * 2), 0)
+  : 0;
 
   return (
-    <section className={`${styles.burgerConstrctor} pt-25 pr-4 pl-4`}>
-      <div className="ml-8">
+    <section className={`${styles.burgerConstrctor} pl-10 pt-20`}>
+      <div className={styles.containerButton}>
         <div className={styles.container}>
           <ConstructorElement
             type="top"
@@ -40,17 +44,20 @@ const BurgerConstructor = ({ ingredients }) => {
             thumbnail={bun.image}
           />
 
-          <ul className={`${styles.list} pr-2`}>
-            <DragIcon type="primary" />
-
-            <ConstructorElement
+          <ul className={`${styles.burgerScroll} pr-2`}>
+            {/*   
+         <DragIcon type="primary" />
+         <ConstructorElement
               text={bun.name}
               price={bun.price}
               thumbnail={bun.image}
-            />
+            /> */}
             {ingredientsData.map((ingredient) => {
               return (
-                <li key={ingredient._id} className="pb-4 pr-2">
+                <li
+                  key={ingredient._id}
+                  className={`${styles.component} pb-4 pr-2`}
+                >
                   <DragIcon type="primary" />
                   <ConstructorElement
                     isLocked={false}
@@ -70,7 +77,10 @@ const BurgerConstructor = ({ ingredients }) => {
             thumbnail={bun.image}
           />
         </div>
-        <div />
+        <div>    <p className="text text_type_digits-medium mr-2">{totalPrice}</p>
+          <CurrencyIcon type="primary" />
+          </div>
+        <div className="mt-10" />
         <Button
           htmlType="button"
           type="primary"

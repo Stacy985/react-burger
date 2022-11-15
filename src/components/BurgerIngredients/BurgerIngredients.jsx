@@ -9,13 +9,12 @@ import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import Modal from "../Modal/Modal";
 
 const BurgerIngredients = (props) => {
+  const [current, setCurrent] = React.useState("bun");
   const main = ingredientTypes.main;
   const bun = ingredientTypes.bun;
   const sauce = ingredientTypes.sauce;
   const [ingredientOpen, setIngredientOpen] = React.useState(false);
   const [ingredienData, setIngredeinData] = React.useState(null);
-
-  const [current, setCurrent] = React.useState("bun");
 
   const openPopup = (ingredient) => {
     setIngredeinData(true);
@@ -27,8 +26,10 @@ const BurgerIngredients = (props) => {
     setIngredientOpen(false);
   };
 
+   // $0.scrollIntoView({ behavior: 'smooth' });
+
   return (
-    <section className={styles.BurgerIngredients}>
+    <section className={styles.burgerIngredients}>
       <h1 className="text text_type_main-large mt-10 mb-5">Соберите бургер</h1>
       <div className={styles.tabs}>
         <Tab value="one" active={current === bun} onClick={setCurrent}>
@@ -41,7 +42,7 @@ const BurgerIngredients = (props) => {
           Начинки
         </Tab>
       </div>
-      <div className={styles.BurgerScrollBar}>
+      <ul className={styles.burgerScroll}>
         <h2 className="text text_type_main-medium mt-10 mb-6">Булки</h2>
         <div className={styles.ingredient}>
           {props.ingredients.map(
@@ -88,7 +89,7 @@ const BurgerIngredients = (props) => {
               )
           )}
         </div>
-      </div>
+      </ul>
       {ingredientOpen && (
         <Modal closePopup={closePopup}>
           <IngredientDetails ingredient={ingredienData} />

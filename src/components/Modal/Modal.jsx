@@ -26,13 +26,13 @@ const Modal = ({ closePopup, children }) => {
         {children}
         <button
           type="button"
-          /* className={styles.modal__closeButton} */
+          className={styles.button}
           onClick={closePopup}
         >
           <CloseIcon type="primary" onClick={closePopup}/>
         </button>
       </div>
-      <ModalOverlay closePopup={closePopup} />
+      <ModalOverlay onClick={closePopup} />
     </div>,
     popup
   );

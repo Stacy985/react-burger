@@ -8,15 +8,16 @@ import styles from "../ingredientPart/ngredientPart.module.css";
 
 const IngredientPart = (props) => {
   return (
-    <div className={styles.ingredientPart}>
+    <li className={styles.ingredientPart}>
       <img className={styles.buns} src={props.image} alt={props.alt} />
       <div className={styles.icons}>
         <h2 className="text text_type_digits-default">{props.price}</h2>
         <CurrencyIcon type="primary" />
       </div>
       <h2 className={`${styles.text} text text_type_main-default`}>{props.name}</h2>
-      <Counter count={1} size="default" />
-    </div>
+      <Counter count={props.count} size="default" extraClass="m-1" />
+
+    </li>
   );
 };
 
@@ -24,6 +25,7 @@ IngredientPart.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  count: PropTypes.number.isRequired
 };
 
 export default IngredientPart;

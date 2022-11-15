@@ -6,14 +6,44 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  align-items: center;
 }
 
-.list {
+.burgerScroll {
   list-style: none;
   display: flex;
   align-items: center;
   padding: 0;
   flex-direction: column;
+  max-height: 568px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
 
+.burgerScroll::-webkit-scrollbar {
+  width: 8px;
+}
+.burgerScroll::-webkit-scrollbar-track {
+  background-color: #2f2f37;
+}
+
+.burgerScroll::-webkit-scrollbar-thumb {
+  background-color: #8585ad;
+  border: 3px solid #8585ad;
+  height: 492px;
+}
+
+.component {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+}
+.forIcons {
+  padding-left: 8px;
+}
+
+.containerButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }

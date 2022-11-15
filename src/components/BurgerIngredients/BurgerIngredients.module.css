@@ -1,8 +1,19 @@
-.BurgerIngredients {
+.burgerIngredients {
   display: flex;
   flex-direction: column;
   padding-left: 382px;
 }
+
+/* .burgerIngredients::-webkit-scrollbar {
+  width: 8px;
+  background-color: #2f2f37;
+}
+
+.burgerIngredients::-webkit-scrollbar-thumb {
+  background: #8585ad;
+  height: 292px;
+} */
+
 .tabs {
   display: flex;
 }
@@ -16,17 +27,25 @@
   text-align: center;
 }
 
-/* .BurgerScroll {
-  display: flex;
-  flex-direction: column;
-  padding-left: 382px;
-} */
-.burgerScrollBar::-webkit-scrollbar {
+.burgerScroll {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 756px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.burgerScroll::-webkit-scrollbar {
   width: 8px;
-  height: auto;
+}
+
+.burgerScroll::-webkit-scrollbar-track {
   background-color: #2f2f37;
 }
 
-.burgerScrollBar::-webkit-scrollbar-thumb {
+.burgerScroll::-webkit-scrollbar-thumb {
   background-color: #8585ad;
+  border: 3px solid #8585ad;
+  height: 292px;
 }
