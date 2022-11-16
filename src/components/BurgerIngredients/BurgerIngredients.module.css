@@ -1,7 +1,6 @@
 .burgerIngredients {
   display: flex;
   flex-direction: column;
-  padding-left: 382px;
 }
 
 .tabs {

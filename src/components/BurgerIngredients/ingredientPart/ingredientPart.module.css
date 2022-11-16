@@ -20,3 +20,9 @@
   max-width: 272px;
   text-align: center;
 }
+
+.iconCount {
+  position: relative;
+  top: -150px;
+  right: -120px;
+}

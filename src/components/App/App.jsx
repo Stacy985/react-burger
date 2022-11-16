@@ -1,15 +1,13 @@
-import * as React from "react";
+import React from "react";
 import styles from "../App/App.module.css";
 import AppHeader from "../AppHeader/AppHeader";
 import BurgerConstructor from "../BurgerConstructor/BurgerConstructor";
 import BurgerIngredients from "../BurgerIngredients/BurgerIngredients";
 import { newApi } from "../../utils/Api";
 
-import { data } from "../../utils/Data.jsx";
-
 const App = () => {
   const [ingredients, setIngredients] = React.useState([]);
-  
+
   React.useEffect(() => {
     newApi
       .getIngredients()
@@ -26,7 +24,9 @@ const App = () => {
       <AppHeader />
       <main className={styles.container}>
         <BurgerIngredients ingredients={ingredients} />
-        { ingredients.length ? <BurgerConstructor ingredients={ingredients} /> : null }
+        {ingredients.length ? (
+          <BurgerConstructor ingredients={ingredients} />
+        ) : null}
       </main>
     </div>
   );

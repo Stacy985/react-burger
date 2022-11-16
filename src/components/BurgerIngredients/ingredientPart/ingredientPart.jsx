@@ -4,29 +4,34 @@ import {
   CurrencyIcon,
   Counter,
 } from "@ya.praktikum/react-developer-burger-ui-components";
-import styles from "../ingredientPart/ngredientPart.module.css";
+import styles from "../ingredientPart/ingredientPart.module.css";
 
-const IngredientPart = (props,{onIngredientClick}) => {
+const ingredientPart = ({ ingredient, onIngredientClick }) => {
   return (
     <li className={styles.ingredientPart} onClick={onIngredientClick}>
-      <img className={styles.buns} src={props.image} alt={props.alt} />
+      <img
+        className={styles.buns}
+        src={ingredient.image}
+        alt={ingredient.name}
+      />
       <div className={styles.icons}>
-        <h2 className="text text_type_digits-default">{props.price}</h2>
+        <h2 className="text text_type_digits-default">{ingredient.price}</h2>
         <CurrencyIcon type="primary" />
       </div>
-      <h2 className={`${styles.text} text text_type_main-default`}>{props.name}</h2>
-      <Counter count={props.count} size="default" extraClass="m-1" />
-
+      <h2 className={`${styles.text} text text_type_main-default`}>
+        {ingredient.name}
+      </h2>
+      <div className={styles.iconCount}>
+        <Counter count={ingredient.count} size="default" extraClass="m-1" />
+      </div>
     </li>
   );
 };
 
-IngredientPart.propTypes = {
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  count: PropTypes.number,
+ingredientPart.propTypes = {
+  ingredient: PropTypes.object.isRequired,
   onIngredientClick: PropTypes.func.isRequired,
+  count: PropTypes.number,
 };
 
-export default IngredientPart;
+export default ingredientPart;

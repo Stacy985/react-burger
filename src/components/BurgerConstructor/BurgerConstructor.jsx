@@ -30,8 +30,8 @@ const BurgerConstructor = ({ ingredients }) => {
 
   return (
     <section className={`${styles.burgerConstrctor} pl-10 pt-20`}>
-      <div className={styles.containerButton}> 
-      <div className={styles.container}>
+      <div className={styles.containerButton}>
+        <div className={styles.container}>
           <ConstructorElement
             type="top"
             isLocked={true}
@@ -48,12 +48,14 @@ const BurgerConstructor = ({ ingredients }) => {
                   className={`${styles.component} pb-4 pr-2`}
                 >
                   <DragIcon type="primary" />
-                  <ConstructorElement
-                    isLocked={false}
-                    text={ingredient.name}
-                    price={ingredient.price}
-                    thumbnail={ingredient.image}
-                  />
+                  <div className={styles.constElement}>
+                    <ConstructorElement
+                      isLocked={false}
+                      text={ingredient.name}
+                      price={ingredient.price}
+                      thumbnail={ingredient.image}
+                    />
+                  </div>
                 </li>
               );
             })}
@@ -67,25 +69,23 @@ const BurgerConstructor = ({ ingredients }) => {
           />
         </div>
 
-        <div className= {`${styles.containerIcon} mt-10`}>
-       
+        <div className={`${styles.containerIcon} mt-10`}>
           <div className={styles.containerCount}>
-          <p className="text text_type_digits-medium mr-2">{610}</p>
-          <CurrencyIcon type="primary" />
+            <p className="text text_type_digits-medium mr-2">{610}</p>
+            <CurrencyIcon type="primary" />
           </div>
-    
-        <Button
-          htmlType="button"
-          type="primary"
-          size="large"
-          onClick={openPopup}
-        >
-          Оформить заказ
-        </Button>
+
+          <Button
+            htmlType="button"
+            type="primary"
+            size="large"
+            onClick={openPopup}
+          >
+            Оформить заказ
+          </Button>
+        </div>
       </div>
-      </div>
-        
- 
+
       {orderDetalsOpen && (
         <Modal closePopup={closePopup} onEscKeydown={handleEscKeydown}>
           <OrderDetails></OrderDetails>

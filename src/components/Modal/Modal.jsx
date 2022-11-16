@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import styles from "../Modal/modal.module.css";
 import ModalOverlay from "../Modal/ModalOverlay/ModalOverlay";
-
 const popup = document.querySelector("#modal");
 
 const Modal = ({ closePopup, children }) => {
@@ -24,12 +23,8 @@ const Modal = ({ closePopup, children }) => {
     <div>
       <div className={styles.modal}>
         {children}
-        <button
-          type="button"
-          className={styles.button}
-          onClick={closePopup}
-        >
-          <CloseIcon type="primary" onClick={closePopup}/>
+        <button type="button" className={styles.button} onClick={closePopup}>
+          <CloseIcon type="primary" onClick={closePopup} />
         </button>
       </div>
       <ModalOverlay onClick={closePopup} />

@@ -48,14 +48,17 @@
   align-items: flex-end;
 }
 
-
-.containerIcon{
+.containerIcon {
   display: flex;
-  align-items:center;
+  align-items: center;
   gap: 40px;
 }
 
-.containerCount{
+.containerCount {
   display: flex;
-  align-items:center;
+  align-items: center;
+}
+
+.constElement {
+  min-width: 536px;
 }
