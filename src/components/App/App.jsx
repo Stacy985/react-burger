@@ -15,7 +15,7 @@ const App = () => {
         setIngredients(res.data);
       })
       .catch((err) => {
-        console.log("Ошибка: $(err)");
+        console.log(`Ошибка: ${err}`);
       });
   }, []);
 

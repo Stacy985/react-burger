@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "../BurgerIngredients/BurgerIngredients.module.css";
 import Ingredientpart from "../BurgerIngredients/ingredientPart/ingredientPart";
 import { ingredientTypes, ingredientType } from "../../utils/Data";
-import CompoundDetail from "../CompoundDetail/CompoundDetail";
+import IngredientDetails from "../IngredientDetails/IngredientDetails";
 import Modal from "../Modal/Modal";
 
 const BurgerIngredients = ({ ingredients }) => {
@@ -97,7 +97,7 @@ const BurgerIngredients = ({ ingredients }) => {
 
       {ingredientOpen && (
         <Modal closePopup={closePopup}>
-          <CompoundDetail ingredient={ingredienData} />
+          <IngredientDetails ingredient={ingredienData} />
         </Modal>
       )}
     </section>

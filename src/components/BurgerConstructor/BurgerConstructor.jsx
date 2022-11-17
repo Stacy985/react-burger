@@ -24,9 +24,6 @@ const BurgerConstructor = ({ ingredients }) => {
   const closePopup = () => {
     setIngredientOpen(false);
   };
-  const handleEscKeydown = (evt) => {
-    evt.key === "Escape" && closePopup();
-  };
 
   return (
     <section className={`${styles.burgerConstrctor} pl-10 pt-20`}>
@@ -87,8 +84,8 @@ const BurgerConstructor = ({ ingredients }) => {
       </div>
 
       {orderDetalsOpen && (
-        <Modal closePopup={closePopup} onEscKeydown={handleEscKeydown}>
-          <OrderDetails></OrderDetails>
+        <Modal closePopup={closePopup}>
+          <OrderDetails />
         </Modal>
       )}
     </section>

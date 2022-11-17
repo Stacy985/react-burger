@@ -30,8 +30,7 @@ const ingredientPart = ({ ingredient, onIngredientClick }) => {
 
 ingredientPart.propTypes = {
   ingredient: PropTypes.object.isRequired,
-  onIngredientClick: PropTypes.func.isRequired,
-  count: PropTypes.number,
+  onIngredientClick: PropTypes.func.isRequired
 };
 
 export default ingredientPart;

@@ -1,5 +1,5 @@
 import React from "react";
-import orderDone from "../images/done.png";
+import orderDone from "../../images/done.png";
 import styles from "../OrderDetails/OrderDetails.module.css";
 
 const OrderDetails = () => {
