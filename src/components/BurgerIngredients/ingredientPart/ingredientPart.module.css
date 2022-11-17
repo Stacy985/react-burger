@@ -1,0 +1,28 @@
+.ingredientPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 24px;
+  cursor: pointer;
+}
+.ingredientPart:last-of-type {
+  padding-right: 0;
+}
+.buns {
+  max-width: 240px;
+}
+.icons {
+  display: flex;
+  gap: 8px;
+}
+
+.text {
+  max-width: 272px;
+  text-align: center;
+}
+
+.iconCount {
+  position: relative;
+  top: -150px;
+  right: -120px;
+}

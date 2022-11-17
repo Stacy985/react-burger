@@ -1,0 +1,40 @@
+.burgerIngredients {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+}
+.ingredient {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 272px));
+  max-width: 600px;
+}
+
+.text {
+  text-align: center;
+}
+
+.burgerScroll {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 756px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+}
+
+.burgerScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.burgerScroll::-webkit-scrollbar-track {
+  background-color: #2f2f37;
+}
+
+.burgerScroll::-webkit-scrollbar-thumb {
+  background-color: #8585ad;
+  border: 3px solid #8585ad;
+  height: 292px;
+}
