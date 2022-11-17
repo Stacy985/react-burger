@@ -7,7 +7,7 @@
 React(CRA)
 Redux
 JavaScript(JSX)
-SCSS-modules
+css
 
 ### Построение
 
