@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useReducer } from "react";
 import {
   ConstructorElement,
   DragIcon,
@@ -10,8 +10,10 @@ import { ingredientType } from "../../utils/Data.jsx";
 import Modal from "../Modal/Modal";
 import OrderDetails from "../OrderDetails/OrderDetails";
 import PropTypes from "prop-types";
+import { IngredientsContext } from "../../context/ingredientsContext";
 
-const BurgerConstructor = ({ ingredients }) => {
+const BurgerConstructor = ({ ingredientsID }) => {
+  const { ingredients } = useContext(IngredientsContext);
   const bun = ingredients.find((ingredient) => ingredient.type === "bun");
   const ingredientsData = ingredients.filter(
     (ingredient) => ingredient.type !== "bun"
@@ -24,6 +26,22 @@ const BurgerConstructor = ({ ingredients }) => {
   const closePopup = () => {
     setIngredientOpen(false);
   };
+
+  const initialPrice = { count: 0 };
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "set":
+        return { price: action.payload };
+      case "reset":
+        return initialPrice;
+      default:
+        throw new Error(`Wrong type of action: ${action.type}`);
+    }
+  };
+  const [costOfFilling, costOfFillingDispatcher] = useReducer(
+    reducer,
+    initialPrice
+  );
 
   return (
     <section className={`${styles.burgerConstrctor} pl-10 pt-20`}>
